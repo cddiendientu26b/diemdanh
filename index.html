@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Điểm danh lớp học</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- MÀN HÌNH ĐĂNG NHẬP -->
+    <div id="auth-screen" class="screen">
+      <div class="logo">📚</div>
+      <h1>Điểm danh lớp học</h1>
+      <p class="subtitle">Hệ thống điểm danh có xác minh vị trí</p>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Đăng nhập</button>
+        <button class="tab" data-tab="register">Đăng ký</button>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="sinhvien@email.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label>Mật khẩu</label>
+        <input type="password" id="password" placeholder="Ít nhất 6 ký tự" autocomplete="current-password">
+      </div>
+
+      <div id="register-fields" style="display:none">
+        <div class="form-group">
+          <label>Họ và tên</label>
+          <input type="text" id="full_name" placeholder="Nguyễn Văn A">
+        </div>
+        <div class="form-group">
+          <label>Mã số sinh viên</label>
+          <input type="text" id="student_id" placeholder="SV001">
+        </div>
+      </div>
+
+      <button id="btn-submit" class="btn-primary">Đăng nhập</button>
+      <p id="auth-msg" class="msg"></p>
+    </div>
+
+    <!-- MÀN HÌNH ĐIỂM DANH -->
+    <div id="main-screen" class="screen" style="display:none">
+      <div class="header">
+        <div>
+          <div class="greeting">Xin chào 👋</div>
+          <div class="username" id="user-name">--</div>
+        </div>
+        <button id="btn-logout" class="btn-logout">Đăng xuất</button>
+      </div>
+
+      <div id="status-box" class="status-box">
+        Đang kiểm tra vị trí...
+      </div>
+
+      <button id="btn-checkin" class="btn-checkin" disabled>
+        📍 ĐIỂM DANH NGAY
+      </button>
+
+      <div class="info-card">
+        <div class="info-row">
+          <span>🏫 Trường</span>
+          <b id="school-name">--</b>
+        </div>
+        <div class="info-row">
+          <span>⏰ Giờ điểm danh</span>
+          <b id="time-range">--:-- - --:--</b>
+        </div>
+        <div class="info-row">
+          <span>📏 Khoảng cách</span>
+          <b id="distance">--</b>
+        </div>
+        <div class="info-row">
+          <span>🎯 Bán kính cho phép</span>
+          <b id="radius">--</b>
+        </div>
+      </div>
+
+      <h3>📋 Lịch sử điểm danh</h3>
+      <div id="history" class="history">
+        <p class="empty">Chưa có lịch sử</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
